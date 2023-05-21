@@ -1,0 +1,54 @@
+# compiled files
+/target/
+
+# IntelliJ IDEA files
+.idea/
+
+# Maven build files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Tomcat build files
+*.iml
+*.ipr
+*.iws
+*.bak
+*.tmp
+.idea_modules/
+out/
+gen/
+
+# logs
+*.log
+
+# temporary files
+*.swp
+*.swo
+*.swn
+*.swm
+*.swl
+*.swk
+*.swj
+*.swh
+*.swg
+*.swf
+*.swe
+*.swd
+*.swc
+*.swb
+*.swa
+*.sw9
+*.sw8
+*.sw7
+*.sw6
+*.sw5
+*.sw4
+*.sw3
+*.sw2
+*.sw1
+*.sdp
