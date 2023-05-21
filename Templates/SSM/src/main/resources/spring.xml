@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- scan component -->
+    <context:component-scan base-package="com.example.ssm">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- jdbc properties -->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <!-- datasource -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!-- transaction manager -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--
+        setup transaction manager
+        use @Transactional annotation function or
+        all functions in @Transactional annotation class to manage transaction
+    -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- sqlSessionFactoryBean, use Spring IOC get sqlSessionFactory -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- dataSource -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- mybatis config file -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!-- mapper xml file, not required after setup transaction manager if the mapper interface is same with xml-->
+<!--        <property name="mapperLocations" value="classpath:com/example/ssm/mapper/*.xml"></property>-->
+        <!-- typeAliasesPackage -->
+        <property name="typeAliasesPackage" value="com.example.ssm.pojo"></property>
+    </bean>
+
+    <!--
+        setup mapper interface scan, use Spring IOC manage sqlSession created
+        Proxy implementation class
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- mapper interface package -->
+        <property name="basePackage" value="com.example.ssm.mapper"></property>
+    </bean>
+
+</beans>

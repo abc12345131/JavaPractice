@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--
+        MyBatis setting，label order：
+        properties?,settings?,typeAliases?,typeHandlers?,
+        objectFactory?,objectWrapperFactory?,reflectorFactory?,
+        plugins?,environments?,databaseIdProvider?,mappers?
+    -->
+
+    <settings>
+        <!--map table columns to object fields-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--enable lazy loading-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--enable loading on request-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <!-- typeAliases setup in Spring already -->
+<!--    <typeAliases>-->
+<!--        &lt;!&ndash; single alias-->
+<!--            <typeAlias type="com.example.ssm.User" alias="User"/>-->
+<!--        &ndash;&gt;-->
+<!--        &lt;!&ndash; package alias &ndash;&gt;-->
+<!--        <package name="com.example.ssm"/>-->
+<!--    </typeAliases>-->
+
+
+
+    <plugins>
+        <!--page helper-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <!-- environments setup in Spring already -->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driver}"/>-->
+<!--                <property name="url" value="${jdbc.url}"/>-->
+<!--                <property name="username" value="${jdbc.username}"/>-->
+<!--                <property name="password" value="${jdbc.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+    <!-- mappers setup in Spring already -->
+<!--    <mappers>-->
+<!--        <package name="com.example.ssm.mapper"/>-->
+<!--    </mappers>-->
+
+</configuration>
