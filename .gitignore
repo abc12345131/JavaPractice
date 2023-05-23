@@ -2,7 +2,10 @@
 target/
 
 # IntelliJ IDEA files
-.idea/
+.idea
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
 # Maven build files
 pom.xml.tag
@@ -12,6 +15,13 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
+
+# Gradle build files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # Tomcat build files
 *.iml
@@ -52,3 +62,16 @@ gen/
 *.sw2
 *.sw1
 *.sdp
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
