@@ -17,11 +17,11 @@ compileTestJava.options.encoding = 'UTF-8'
 
 
 //set the encoding of the source code
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
 	options.encoding = 'UTF-8'
 }
 
-tasks.withType(Javadoc) {
+tasks.withType(Javadoc).configureEach {
 	options.encoding = 'UTF-8'
 }
 
