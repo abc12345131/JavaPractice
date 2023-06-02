@@ -2,7 +2,6 @@ package com.example.demo.config;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -10,7 +9,7 @@ import org.springframework.context.annotation.Import;
  * @createdAt 2023/5/31-0:22
  */
 
-@Import({ComponentConfig.class})
+
 @SpringBootConfiguration
 public class AppConfig {
 
