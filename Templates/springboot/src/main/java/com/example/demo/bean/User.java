@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
  * @createdAt 2023/5/31-0:42
  */
 
+@no
 @ConfigurationProperties(prefix = "user")
 public class User {
 
